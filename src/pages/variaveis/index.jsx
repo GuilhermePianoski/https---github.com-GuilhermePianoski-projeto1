@@ -2,8 +2,8 @@ import './index.scss'
 
 export default function Variavel() {
     return(
-        <header>
-            <h1>ola </h1>
-        </header>
+        <div className='pagina-variaveis'>
+            <h1>Bem-vindo a pagina de variaveis</h1>
+        </div>
     )
 }
