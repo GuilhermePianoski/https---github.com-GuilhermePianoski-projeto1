@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export default function Inicio() {
     return(
-        <div className='pagina-inicio'>
+        <div className='pagina-inicio pagina'>
             <header className='cabecalho'>
              <h1 className='titulo'>
                 Estudos De React
@@ -12,9 +12,18 @@ export default function Inicio() {
             </header>
 
             <div className='secao'>
-             <h1 className='titulo2'>
+             <h1>
                 Estudando React JS
              </h1>
+
+             <input type='text' placeholder='Digite aqui' />
+             <br /><br />
+             <select>
+                <option>Item 1</option>
+                <option>Item 2</option>
+             </select>
+             <br /><br />
+             <button>Clique aqui</button>
 
              <ul>
                 <li>
@@ -22,6 +31,9 @@ export default function Inicio() {
                 </li>
                 <li>
                 <Link to='/contato'>Ir para o contato</Link>
+                </li>
+                <li>
+                  <Link to='/eventos'>Ir para eventos</Link>
                 </li>
              </ul>
             </div>
