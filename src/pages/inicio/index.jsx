@@ -27,7 +27,7 @@ export default function Inicio() {
 
              <ul>
                 <li>
-                <Link to='/variaveis'>Ir para as variaveis</Link>
+                <Link to='/variaveis'>Ir para as Variaveis de Estado</Link>
                 </li>
                 <li>
                 <Link to='/contato'>Ir para o contato</Link>
