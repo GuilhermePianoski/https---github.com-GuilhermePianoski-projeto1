@@ -3,6 +3,19 @@ import './index.scss'
 
 export default function Eventos() {
 
+    function clicou() {
+        alert('Oiii, o usuário acaboude clicar')
+    }
+
+    function mexeumouse() {
+        alert('Oiiii, o usuário acabou de mexer o mouse')
+    }
+
+    function alterouvalor(e) {
+        let novoValor = e.target.value
+        alert('oi, o usuário alterou o valor para: ' + novoValor)
+    }
+
     return(
         <div className='pagina-eventos pagina'>
             <header className='cabecalho'>
@@ -12,9 +25,9 @@ export default function Eventos() {
             <section className='secao'>
                 <h1>Entendendo eventos</h1>
 
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam labore quas magni mollitia quod dolorum quo nemo soluta? Sapiente consequuntur culpa reiciendis ex velit molestiae ullam modi odit illo non.</p>
+                <p onClick={clicou} onMouseMove={mexeumouse}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam labore quas magni mollitia quod dolorum quo nemo soluta? Sapiente consequuntur culpa reiciendis ex velit molestiae ullam modi odit illo non.</p>
 
-                <input type='text' placeholder='Digite aqui alguma coisa ' />
+                <input onChange={alterouvalor} type='text' placeholder='Digite aqui alguma coisa ' />
 
                 <select>
                     <option>Selecione</option>
@@ -35,7 +48,7 @@ export default function Eventos() {
                     </div>
                 </div>
 
-                <button>Clique aqui</button>
+                <button onClick={clicou}>Clique aqui</button>
        
             </section>
 
