@@ -9,6 +9,10 @@ export default function Variavel() {
     const [tituloS5, setTituloS5] = useState('Oie');
     const [descricaoS5, setDescricaoS5] = useState('Oiii');
 
+    const[num1, setNum1] = useState(0);
+    const[num2, setNum2] = useState(0);
+    const[res, setRes] = useState(0);
+
     //let Contador = 0
         function aumentar() {
              //contador = contador + 1
@@ -24,36 +28,27 @@ export default function Variavel() {
             } 
        }
 
-       function alterarTituloS2(e) {
-         let novoValor = e.target.value;
-         setTituloS2(novoValor);
-       }
-
-       function alterarTituloS3(e) {
-        let novoValor = e.target.value;
-        setTituloS3(novoValor);
+      function somar() {
+        let soma = Number(num1) + Number(num2);
+        setRes(soma);
       }
-
-      function alterarOpcaos4(e) {
-        let novoValor = e.target.value.checked;
-        setMarcouOpcaoS4(novoValor)
-      }
-
-      function alterarDescricaoS5(e) {
-        let novoValor = e.target.value;
-        setDescricaoS5(novoValor);
-      }
-
-      function alterarTituloS5() {
-         setTituloS5(descricaoS5);
-      }
-
 
     return(
         <div className='pagina-variaveis pagina'>
             <header className='cabecalho>'>
                 <h1>ReactJS | Variável de Estado</h1>
             </header>
+
+            <div className='secao calculadora'>
+                <h1> Calculadora </h1>
+                <div className='entrada'>
+                    <input type='text' value={num1} onChange={e => setNum1(e.target.value)} />
+                    <input type='text' value={num2} onChange={e => setNum2(e.target.value)} />
+                    <div>=</div>
+                    <div className='res'> {res} </div>
+                </div>
+                <button onClick={somar}> Somar </button>
+            </div>
 
             <div className='secao'>
                 <h1> Contador </h1>
@@ -67,12 +62,12 @@ export default function Variavel() {
 
             <div className='secao'>
                 <h1> {tituloS2} </h1>
-                <input type='text' value={tituloS2} onChange={alterarTituloS2} />
+                <input type='text' value={tituloS2} onChange={e => setTituloS2(e.target.value)} />
             </div>
 
             <div className='secao'>
                 <h1> {tituloS3} </h1>
-                <select onChange={alterarTituloS3}>
+                <select onChange={e => setTituloS3(e.target.value)}>
                     <option>Selecione</option>
                     <option>Javascript</option>
                     <option>Html/Css</option>
@@ -83,14 +78,14 @@ export default function Variavel() {
         
             <div className='secao'>
                 <h1> Programar é lindo? {marcouOpcaoS4 ? 'Sim' : 'Não'} </h1>
-                <input type='checkbox' checked={marcouOpcaoS4} onChange={alterarOpcaos4} /> Programar é lindo?
+                <input type='checkbox' checked={marcouOpcaoS4} onChange={e => setMarcouOpcaoS4(e.target.checked)} /> Programar é lindo?
             </div>
             
             <div className='secao'>
                 <h1> {tituloS5} </h1>
-                <input type='text' value={descricaoS5} onChange={alterarDescricaoS5} />
+                <input type='text' value={descricaoS5} onChange={e => setDescricaoS5(e.target.value)} />
 
-                <button onClick={alterarTituloS5}>Alterar</button>
+                <button onClick={() => setTituloS5(descricaoS5)}>Alterar</button>
             </div>
 
 
