@@ -36,4 +36,36 @@
       }
 }
 
+
+    .ingresso {
+        .entrada {
+            display: flex;
+            flex-direction:column;
+            align-items: start;
+            justify-content: start;
+            gap: 10px;
+
+
+            & > div {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+
+                label {
+                    width: 200px;
+                    text-align: right;
+                }
+
+                input[type=text] {
+                    min-width: auto;
+                    width: 200px;
+                }
+
+                button {
+                    width: 200px;
+                }
+            }
+        }
+    }
+
 }

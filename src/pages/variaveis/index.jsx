@@ -13,6 +13,12 @@ export default function Variavel() {
     const[num2, setNum2] = useState(0);
     const[res, setRes] = useState(0);
 
+    const[qtdIng, setQtdIng] = useState(0);
+    const[meioIng, setMeioIng] = useState(0);
+    const[cupom, setCupom] = useState('');
+    const[totalIng, setTotalIng] = useState(0);
+    
+
     //let Contador = 0
         function aumentar() {
              //contador = contador + 1
@@ -33,11 +39,54 @@ export default function Variavel() {
         setRes(soma);
       }
 
+      function calcularIngresso() {
+        let tot = 0;
+        if (meioIng == true) {
+            tot = qtdIng * 15.00;
+        }
+        else {
+            tot = qtdIng * 30.00;
+        }
+
+        if (cupom == 'QUERO50') {
+            let desc = tot * 50 / 100;
+            tot = tot - desc;
+        }
+
+        setTotalIng(tot);
+      }
+
     return(
         <div className='pagina-variaveis pagina'>
             <header className='cabecalho>'>
                 <h1>ReactJS | Variável de Estado</h1>
             </header>
+
+            <div className='secao ingresso'>
+                <h1>Venda de Ingressos</h1>
+                <div className='entrada'>
+                    <div>
+                        <label>Quantidade: </label>
+                        <input type='text' value={qtdIng} onChange={e => setQtdIng(e.target.value)} />
+                    </div>
+                    <div>
+                        <label>Meia Entrada:</label>
+                        <input type='checkbox' checked={meioIng}onChange={e => setMeioIng(e.target.value)}/>
+                    </div>
+                    <div>
+                        <label>Cupom: </label>
+                        <input type='text' value={cupom} onChange={e => setCupom(e.target.value)} />
+                    </div>
+                    <div>
+                        <label> &nbsp; </label>
+                        <button onClick={calcularIngresso}> Calcular </button>
+                    </div>
+                    <hr />
+                    <div>
+                        O total é R$ {totalIng}
+                    </div>
+                </div>
+            </div>
 
             <div className='secao calculadora'>
                 <h1> Calculadora </h1>
