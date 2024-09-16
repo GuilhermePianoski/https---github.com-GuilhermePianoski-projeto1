@@ -1,5 +1,5 @@
 import './index.scss'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Variavel() {
     const [Contador, setContador] = useState(0);
@@ -17,6 +17,9 @@ export default function Variavel() {
     const[meioIng, setMeioIng] = useState(0);
     const[cupom, setCupom] = useState('');
     const[totalIng, setTotalIng] = useState(0);
+
+    const[noveMeta, setNovaMeta] = useState('');
+    const[listaMetas, setListaMetas] = useState('');
     
 
     //let Contador = 0
@@ -56,11 +59,38 @@ export default function Variavel() {
         setTotalIng(tot);
       }
 
+      function adicionarMeta() {
+        //listaMetas.push(noveMeta);
+
+        if (noveMeta != '') {
+             setListaMetas([...listaMetas, noveMeta]);
+             setNovaMeta('');
+        } 
+      }
+
+      function teclaApertada(e) {
+        alert(e.key);
+      }
+
     return(
         <div className='pagina-variaveis pagina'>
             <header className='cabecalho>'>
                 <h1>ReactJS | Variável de Estado</h1>
             </header>
+
+            <div className='secao metas'>
+               <h1>Metas para o próximo 5 anos</h1>
+
+               <div className='entrada'>
+                <input type='text' placeholder='Digite suas meta aqui' onKeyUp={teclaApertada} value={noveMeta} onChange={e => setNovaMeta(e.target.value)}/>
+                <button onClick={adicionarMeta}>Adicionar</button>
+               </div>
+
+               <ul> 
+                   {listaMetas}
+               </ul>
+               
+            </div>
 
             <div className='secao ingresso'>
                 <h1>Venda de Ingressos</h1>
